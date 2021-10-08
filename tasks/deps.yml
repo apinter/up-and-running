@@ -1,0 +1,63 @@
+---
+- name: Setup flatpak remotes
+  ansible.builtin.shell: "{{ item }}"
+  become: yes
+  become_user: adathor
+  with_items:
+    - flatpak --user remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
+    - flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+- name: Install rpms
+  community.general.zypper:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - azure-cli
+    - ranger
+    - podman 
+    - keepassxc
+    - toolbox
+    - brave-browser
+    - code
+    - opi 
+    - zsh
+    - zsh-syntax-highlighting
+    - snapd
+    - vlc
+    - ffmpeg
+    - virtualbox
+    - virtualbox-guest-tools
+    - python38-devel
+    - cmake
+    - python38
+    - mono-devel
+    - go
+    - dnf
+    - v4l2loopback-utils
+    - v4l2loopback-kmp-default
+    - v4l2loopback-autoload
+    - evolution
+    - pwgen
+    - xdg-desktop-portal-gnome
+    - xdg-desktop-portal-wlr
+    - gstreamer-plugin-pipewire
+    - sshpass
+    - inkscape
+    - gimp
+    - wireguard-tools
+    - uget
+    - wine
+    - libvirt
+    - virt-manager
+    - cryfs
+    - patterns-devel-C-C++-devel_C_C++
+    - patterns-devel-base-devel_basis
+- name: Enable services
+  ansible.builtin.systemd:
+    daemon_reload: yes
+    state: started
+    enabled: yes
+    name: "{{ item }}"
+  with_items:
+    - snapd
+    - snapd.apparmor
+    - libvirtd

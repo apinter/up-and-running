@@ -1,0 +1,8 @@
+[packman]
+name=Packman
+baseurl=https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/
+enabled=1
+type=rpm-md
+gpgcheck=1
+autorefresh=1
+priority=90

@@ -1,0 +1,27 @@
+---
+- name: Add repos
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: /etc/zypp/repos.d/
+    owner: root
+    group: root
+  with_items:
+    - azure-cli.repo
+    - brave-browser.repo
+    - packman.repo
+    - snappy.repo
+    - vivaldi.repo
+    - vscode.repo
+    - ZSH-Syntax.repo
+- name: Refresh repos
+  community.general.zypper_repository:
+    repo: '*'
+    auto_import_keys: yes
+    runrefresh: yes
+- name: Create a symbolic link
+  ansible.builtin.file:
+    src: /etc/zypp/repos.d/
+    dest: /etc/dnf/repos.d
+    owner: root
+    group: root
+    state: link

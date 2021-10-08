@@ -1,0 +1,22 @@
+---
+- name: Update SuSE/openSUSE hosts
+  community.general.zypper:
+    name: '*' 
+    state: latest
+    update_cache: yes 
+  when:
+    - ansible_os_family == "Suse"
+
+- name: Update openSUSE MicroOS/Kubic
+  ansible.builtin.command:
+    cmd: /usr/sbin/transactional-update cleanup dup
+  when:
+    - ansible_os_family == "openSUSE MicroOS"
+
+- name: Update RHEL/Fedora/CentOS hosts
+  ansible.builtin.dnf:
+    name: '*' 
+    state: latest
+    update_cache: yes 
+  when:
+    - ansible_os_family == "RedHat"

@@ -1,0 +1,5 @@
+[azure-cli]
+name=Azure CLI
+enabled=1
+autorefresh=0
+baseurl=https://packages.microsoft.com/yumrepos/azure-cli

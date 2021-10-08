@@ -1,0 +1,7 @@
+[shells_zsh-users_zsh-syntax-highlighting]
+name=zsh-syntax-highlighting (openSUSE_Tumbleweed)
+type=rpm-md
+baseurl=https://download.opensuse.org/repositories/shells:/zsh-users:/zsh-syntax-highlighting/openSUSE_Tumbleweed/
+gpgcheck=1
+gpgkey=https://download.opensuse.org/repositories/shells:/zsh-users:/zsh-syntax-highlighting/openSUSE_Tumbleweed/repodata/repomd.xml.key
+enabled=1
