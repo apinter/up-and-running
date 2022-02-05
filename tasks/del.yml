@@ -1,5 +1,5 @@
 ---
-- name: Remove stuff
+- name: Remove packages
   community.general.zypper:
     name: "{{ item }}"
     state: absent

@@ -12,11 +12,3 @@
     cmd: /usr/sbin/transactional-update cleanup dup
   when:
     - ansible_os_family == "openSUSE MicroOS"
-
-- name: Update RHEL/Fedora/CentOS hosts
-  ansible.builtin.dnf:
-    name: '*' 
-    state: latest
-    update_cache: yes 
-  when:
-    - ansible_os_family == "RedHat"

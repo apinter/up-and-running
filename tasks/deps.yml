@@ -6,6 +6,8 @@
   with_items:
     - flatpak --user remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
     - flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    - flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    - flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 - name: Install rpms
   community.general.zypper:
     name: "{{ item }}"
@@ -41,8 +43,6 @@
     - xdg-desktop-portal-wlr
     - gstreamer-plugin-pipewire
     - sshpass
-    - inkscape
-    - gimp
     - wireguard-tools
     - uget
     - wine
@@ -51,6 +51,100 @@
     - cryfs
     - patterns-devel-C-C++-devel_C_C++
     - patterns-devel-base-devel_basis
+    - bat
+- name: Install flatpaks
+  ansible.builtin.shell: flatpak install --user -y {{ item }}
+    become: yes
+    become_user: adathor
+  with_items:
+    - com.belmoussaoui.Decoder
+    - com.belmoussaoui.Obfuscate
+    - com.bitwarden.desktop
+    - com.discordapp.Discord
+    - com.github.debauchee.barrier
+    - com.github.gi_lom.dialect
+    - com.github.taiko2k.avvie
+    - com.github.tchx84.Flatseal
+    - com.github.xournalpp.xournalpp
+    - com.mattermost.Desktop
+    - com.mattjakeman.ExtensionManager
+    - com.microsoft.Teams
+    - com.obsproject.Studio
+    - com.skype.Client
+    - com.slack.Slack
+    - com.spotify.Client
+    - fr.romainvigier.MetadataCleaner
+    - fyi.zoey.Boop-GTK
+    - im.bernard.Nostalgia
+    - im.riot.Riot
+    - io.github.lainsce.Notejot
+    - io.github.seadve.Kooha
+    - net.cozic.joplin_desktop
+    - org.freedesktop.LinuxAudio.Plugins.TAP
+    - org.freedesktop.LinuxAudio.Plugins.swh
+    - org.freedesktop.Platform
+    - org.freedesktop.Platform
+    - org.freedesktop.Platform.GL.default
+    - org.freedesktop.Platform.GL.default
+    - org.freedesktop.Platform.GL.default
+    - org.freedesktop.Platform.VAAPI.Intel
+    - org.freedesktop.Platform.VAAPI.Intel
+    - org.freedesktop.Platform.VAAPI.Intel
+    - org.freedesktop.Platform.ffmpeg-full
+    - org.freedesktop.Platform.openh264
+    - org.freedesktop.Platform.openh264
+    - org.freedesktop.Platform.openh264
+    - org.freedesktop.Platform.openh264
+    - org.gaphor.Gaphor
+    - org.gimp.GIMP
+    - org.gimp.GIMP.Manual
+    - org.gnome.Boxes
+    - org.gnome.Boxes.Extension.OsinfoDb
+    - org.gnome.Builder
+    - org.gnome.Calendar
+    - org.gnome.Cheese
+    - org.gnome.Keysign
+    - org.gnome.Photos
+    - org.gnome.Platform
+    - org.gnome.Platform
+    - org.gnome.Platform
+    - org.gnome.Platform
+    - org.gnome.Platform
+    - org.gnome.Podcasts
+    - org.gnome.Sdk
+    - org.gnome.SoundRecorder
+    - org.gnome.TextEditor
+    - org.gnome.TextEditor.Devel
+    - org.gnome.Todo
+    - org.gnome.Todo.Devel
+    - org.gnome.gitlab.YaLTeR.VideoTrimmer
+    - org.gnome.gitlab.somas.Apostrophe
+    - org.gnome.gitlab.somas.Apostrophe.Plugin.TexLive
+    - org.gtk.Gtk3theme.Adwaita-dark
+    - org.gtk.Gtk3theme.Breeze
+    - org.gustavoperedo.FontDownloader
+    - org.kde.Platform
+    - org.kde.Platform
+    - org.kde.PlatformTheme.QGnomePlatform
+    - org.kde.PlatformTheme.QGnomePlatform
+    - org.kde.PlatformTheme.QtSNI
+    - org.kde.PlatformTheme.QtSNI
+    - org.kde.WaylandDecoration.QGnomePlatform-decoration
+    - org.kde.WaylandDecoration.QGnomePlatform-decoration
+    - org.kde.gwenview
+    - org.kde.kdenlive
+    - org.kde.okular
+    - org.mozilla.firefox
+    - org.qownnotes.QOwnNotes
+    - org.signal.Signal
+    - org.telegram.desktop
+    - org.telegram.desktop.webview
+    - org.videolan.VLC
+    - page.codeberg.foreverxml.Random
+    - re.sonny.Junction
+    - rest.insomnia.Insomnia
+    - tv.kodi.Kodi
+    - us.zoom.Zoom
 - name: Enable services
   ansible.builtin.systemd:
     daemon_reload: yes

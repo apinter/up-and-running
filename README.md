@@ -8,6 +8,17 @@ Requirements
 
 Needs `community.general`
 
+Example Playbook
+----------------
+```
+---
+ - name: setup box
+   become: true
+   hosts: localhost
+   roles:
+    - {role: up-and-running}
+```
+
 License
 -------
 
