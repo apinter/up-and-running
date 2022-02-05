@@ -4,10 +4,10 @@
   become: yes
   become_user: adathor
   with_items:
-    - flatpak --user remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
-    - flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    - sudo -u apinter flatpak --user remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
+    - sudo -u apinter flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     - flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    - flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    - sudo -u apinter flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 - name: Install rpms
   community.general.zypper:
     name: "{{ item }}"
