@@ -8,7 +8,6 @@
   with_items:
     - azure-cli.repo
     - brave-browser.repo
-    - packman.repo
     - snappy.repo
     - vivaldi.repo
     - vscode.repo

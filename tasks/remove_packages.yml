@@ -6,8 +6,10 @@
   with_items:
     - yast2
     - yast2-*
+    - MozillaFirefox
 - name: Lock removed packages
   ansible.builtin.shell: zypper al {{ item }}
   with_items:
     - yast2
     - yast2-*
+    - MozillaFirefox
