@@ -3,7 +3,7 @@
   community.general.zypper:
     name: "{{ item }}"
     state: absent
-  with_items:
+  loop:
     - yast2
     - yast2-*
     - MozillaFirefox
@@ -15,7 +15,7 @@
 
 - name: Lock removed packages
   ansible.builtin.shell: zypper al {{ item }}
-  with_items:
+  loop:
     - yast2
     - yast2-*
     - MozillaFirefox

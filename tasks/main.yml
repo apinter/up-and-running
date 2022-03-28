@@ -4,7 +4,7 @@
       path: /etc/crypttab
       line: "{{ item }}"
       state: present
-    with_items:
+    loop:
       - "cr_home  UUID=ea8b590a-66b9-48eb-8523-18ea94fc29f8  none  x-initrd.attach,discard"
       - "cr_store    UUID=ada7205e-01d2-4faa-af7b-36735e4f07d5  none  x-initrd.attach"
 
@@ -19,7 +19,7 @@
       path: /etc/fstab
       line: "{{ item }}"
       state: present
-    with_items:
+    loop:
       - "UUID=92de2953-efba-4a0d-851d-7e2d800da577 /home            btrfs  compress=zstd:1               0  0"
       - "UUID=7c37b228-493d-467e-863c-9ac506a5c087 /home/apinter/Storage    btrfs  compress=zstd:1       0  0"
 
