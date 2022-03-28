@@ -7,11 +7,13 @@
     with_items:
       - "cr_home  UUID=ea8b590a-66b9-48eb-8523-18ea94fc29f8  none  x-initrd.attach,discard"
       - "cr_store    UUID=ada7205e-01d2-4faa-af7b-36735e4f07d5  none  x-initrd.attach"
+
   - name: Delete existing /home from fstab
     ansible.builtin.lineinfile:
       path: /etc/fstab
       regexp: "/home" 
       state: absent
+      
   - name: Add disks to fstab
     ansible.builtin.lineinfile:
       path: /etc/fstab
@@ -20,6 +22,14 @@
     with_items:
       - "UUID=92de2953-efba-4a0d-851d-7e2d800da577 /home            btrfs  compress=zstd:1               0  0"
       - "UUID=7c37b228-493d-467e-863c-9ac506a5c087 /home/apinter/Storage    btrfs  compress=zstd:1       0  0"
+
+  - name: Set Gnome background
+    ansible.builtin.shell: |
+      gsettings set org.gnome.desktop.background picture-options none
+      gsettings set org.gnome.desktop.background primary-color '#555555'
+      gsettings set org.gnome.desktop.background color-shading-type 'solid'
+    become: yes
+    become_user: apinter
 
   - include_tasks: update_system.yml
   - include_tasks: add_repos.yml
