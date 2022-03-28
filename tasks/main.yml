@@ -13,7 +13,7 @@
       path: /etc/fstab
       regexp: "/home" 
       state: absent
-      
+
   - name: Add disks to fstab
     ansible.builtin.lineinfile:
       path: /etc/fstab

@@ -8,6 +8,7 @@
     - sudo -u apinter flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     - flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     - sudo -u apinter flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
 - name: Install rpms
   community.general.zypper:
     name: "{{ item }}"
@@ -53,6 +54,7 @@
     - patterns-devel-C-C++-devel_C_C++
     - patterns-devel-base-devel_basis
     - bat
+
 - name: Install flatpaks
   ansible.builtin.shell: "flatpak install --user -y {{ item }}"
   become: yes
@@ -151,6 +153,7 @@
     - rest.insomnia.Insomnia
     - tv.kodi.Kodi
     - us.zoom.Zoom
+    
 - name: Enable services
   ansible.builtin.systemd:
     daemon_reload: yes
