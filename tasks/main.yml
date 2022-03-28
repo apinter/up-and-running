@@ -31,6 +31,19 @@
       gsettings set org.gnome.gnome-screenshot auto-save-directory 'file:///home/apinter/Media/Pictures/Screenshots/'
     become: yes
     become_user: apinter
+  
+  - name: Copy mount unit
+    ansible.builtin.copy:
+      src: home-apinter-Media.mount
+      dest: /etc/systemd/system/
+      owner: root
+      mode: '0644'
+  
+  - name: Enable mount unit
+    ansible.builtin.systemd:
+      enabled: true
+      daemon_reload: yes
+      name: home-apinter-Media.mount
 
   - include_tasks: update_system.yml
   - include_tasks: add_repos.yml
