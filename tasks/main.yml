@@ -23,11 +23,12 @@
       - "UUID=92de2953-efba-4a0d-851d-7e2d800da577 /home            btrfs  compress=zstd:1               0  0"
       - "UUID=7c37b228-493d-467e-863c-9ac506a5c087 /home/apinter/Storage    btrfs  compress=zstd:1       0  0"
 
-  - name: Set Gnome background
+  - name: Set Gnome background and screenshots location
     ansible.builtin.shell: |
       gsettings set org.gnome.desktop.background picture-options none
       gsettings set org.gnome.desktop.background primary-color '#555555'
       gsettings set org.gnome.desktop.background color-shading-type 'solid'
+      gsettings set org.gnome.gnome-screenshot auto-save-directory 'file:///home/apinter/Media/Pictures/Screenshots/'
     become: yes
     become_user: apinter
 

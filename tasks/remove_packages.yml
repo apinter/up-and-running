@@ -7,9 +7,20 @@
     - yast2
     - yast2-*
     - MozillaFirefox
+    - gedit
+    - gnome-photos
+    - libreoffice
+    - vlc
+    - yast2
+
 - name: Lock removed packages
   ansible.builtin.shell: zypper al {{ item }}
   with_items:
     - yast2
     - yast2-*
     - MozillaFirefox
+    - gedit  
+    - gnome-photos
+    - libreoffice
+    - vlc
+    - yast2
