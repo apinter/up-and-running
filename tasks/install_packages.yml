@@ -54,6 +54,7 @@
     - patterns-devel-C-C++-devel_C_C++
     - patterns-devel-base-devel_basis
     - bat
+    - mlocate
 
 - name: Install flatpaks
   ansible.builtin.shell: "flatpak install --user -y {{ item }}"
