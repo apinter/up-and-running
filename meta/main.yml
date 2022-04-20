@@ -2,6 +2,4 @@ galaxy_info:
   author: Attila Pinter
   description: Getting my openSUSE TW up and running
   license: Unlicense
-  min_ansible_version: 2.1
-dependencies:
-  community.general
+  min_ansible_version: 2.9
