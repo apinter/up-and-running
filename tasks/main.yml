@@ -22,6 +22,14 @@
     loop:
       - "UUID=92de2953-efba-4a0d-851d-7e2d800da577 /home            btrfs  compress=zstd:1               0  0"
       - "UUID=7c37b228-493d-467e-863c-9ac506a5c087 /home/apinter/Storage    btrfs  compress=zstd:1       0  0"
+  
+  - name: Mount everything
+    ansible.posix.mount:
+      path: /home
+      src: UUID=92de2953-efba-4a0d-851d-7e2d800da577
+      fstype: btrfs
+      opts: "compress=zstd:1"
+      state: present
 
   - name: Set Gnome background and screenshots location
     ansible.builtin.shell: |
@@ -44,6 +52,24 @@
       enabled: true
       daemon_reload: yes
       name: home-apinter-Media.mount
+
+  - name: Copy flatpak update unit and timer
+    ansible.builtin.copy:
+      src: "{{ item }}"
+      dest: /home/apinter/.config/systemd/user/
+      owner: apinter
+      mode: '0744'
+    become: yes
+    become_user: apinter
+    loop:
+      - update-user-flatpaks.service
+      - update-user-flatpaks.timer
+  
+  - name: Enable flatpak update timer
+    ansible.builtin.systemd:
+      enabled: true
+      daemon_reload: yes
+      name: update-user-flatpaks.timer
 
   - include_tasks: update_system.yml
   - include_tasks: add_repos.yml

@@ -39,7 +39,6 @@
     - v4l2loopback-utils
     - v4l2loopback-kmp-default
     - v4l2loopback-autoload
-    - evolution
     - pwgen
     - xdg-desktop-portal-gnome
     - xdg-desktop-portal-wlr
@@ -108,6 +107,7 @@
     - org.gnome.Boxes
     - org.gnome.Boxes.Extension.OsinfoDb
     - org.gnome.Builder
+    - org.gnome.Evolution
     - org.gnome.Calendar
     - org.gnome.Cheese
     - org.gnome.Keysign
