@@ -29,7 +29,7 @@
       src: UUID=92de2953-efba-4a0d-851d-7e2d800da577
       fstype: btrfs
       opts: "compress=zstd:1"
-      state: present
+      state: mounted
 
   - name: Set Gnome background and screenshots location
     ansible.builtin.shell: |

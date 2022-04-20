@@ -6,8 +6,6 @@
     update_cache: yes
   when:
     - ansible_distribution == "openSUSE Tumbleweed"
-  notify: 
-    - "restart gateway services"
 
 - name: Update SLE/openSUSE Leap hosts
   community.general.zypper:
@@ -16,13 +14,9 @@
     update_cache: yes
   when:
     - ansible_distribution == "openSUSE Leap"
-  notify: 
-    - "restart gateway services"
 
 - name: Update openSUSE MicroOS/Kubic
   ansible.builtin.command:
     cmd: /usr/sbin/transactional-update cleanup dup
   when:
     - ansible_os_family == "openSUSE MicroOS"
-  notify: 
-    - "restart gateway services"
