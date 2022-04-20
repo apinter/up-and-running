@@ -26,7 +26,6 @@
     - opi 
     - zsh
     - zsh-syntax-highlighting
-    - snapd
     - ffmpeg
     - virtualbox
     - virtualbox-guest-tools
@@ -162,7 +161,5 @@
     enabled: yes
     name: "{{ item }}"
   loop:
-    - snapd
-    - snapd.apparmor
     - libvirtd
     - docker
