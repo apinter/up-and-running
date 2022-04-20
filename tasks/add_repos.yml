@@ -8,7 +8,6 @@
   loop:
     - azure-cli.repo
     - brave-browser.repo
-    - snappy.repo
     - vivaldi.repo
     - vscode.repo
     - ZSH-Syntax.repo
