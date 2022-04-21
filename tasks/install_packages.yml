@@ -18,12 +18,12 @@
     - fish
     - docker
     - ranger
-    - podman 
+    - podman
     - keepassxc
     - toolbox
     - brave-browser
     - code
-    - opi 
+    - opi
     - zsh
     - zsh-syntax-highlighting
     - ffmpeg
@@ -153,7 +153,7 @@
     - rest.insomnia.Insomnia
     - tv.kodi.Kodi
     - us.zoom.Zoom
-    
+
 - name: Enable services
   ansible.builtin.systemd:
     daemon_reload: yes

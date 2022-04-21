@@ -1,0 +1,21 @@
+---
+extends: default
+
+rules:
+  line-length:
+    max: 4000
+    level: warning
+  braces:
+    min-spaces-inside: 0
+    max-spaces-inside: 2
+  truthy:
+    allowed-values: ['true', 'false', 'True', 'False', 'on', 'off', 'yes', 'no']
+    check-keys: true
+  document-start: disable
+  comments-indentation: disable
+
+ignore: |
+  .github/stale.yml
+  .travis.yml
+  files/kubernetes
+  files/traefik-plugins

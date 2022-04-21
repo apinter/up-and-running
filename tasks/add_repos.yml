@@ -17,7 +17,7 @@
     repo: '*'
     auto_import_keys: yes
     runrefresh: yes
-    
+
 - name: Create a symbolic link
   ansible.builtin.file:
     src: /etc/zypp/repos.d/
