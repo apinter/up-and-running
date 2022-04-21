@@ -1,0 +1,64 @@
+---
+- name: Clone dotconf
+  ansible.builtin.git:
+    repo: git@github.com:apinter/dotconf.git
+    dest: /home/apinter/Project/git/dotconf
+    update: true
+  become: yes
+  become_user: apinter
+- name: Symlink configs
+  ansible.builtin.file:
+    src: /home/apinter/Project/git/dotconf/{{ item }}
+    dest: /home/apinter/.config/{{ item }}
+    owner: apinter
+    group: users
+    state: link
+  become: yes
+  become_user: apinter
+  loop:
+    - fish
+    - ranger
+- name: Symlink Sway related configs
+  ansible.builtin.file:
+    src: /home/apinter/Project/git/dotconf/sway/{{ item }}
+    dest: /home/apinter/.config/{{ item }}
+    owner: apinter
+    group: users
+    state: link
+  become: yes
+  become_user: apinter
+  loop:
+    - sway
+    - waybar
+    - wofi
+- name: Symlink vim configs
+  ansible.builtin.file:
+    src: /home/apinter/Project/git/dotconf/vim/{{ item }}
+    dest: /home/apinter/{{ item }}
+    owner: apinter
+    group: users
+    state: link
+  become: yes
+  become_user: apinter
+  loop:
+    - .vimrc
+- name: Symlink zsh configs
+  ansible.builtin.file:
+    src: /home/apinter/Project/git/dotconf/zsh/{{ item }}
+    dest: /home/apinter/{{ item }}
+    owner: apinter
+    group: users
+    state: link
+  become: yes
+  become_user: apinter
+  loop:
+    - .zshrc
+- name: Copy vim configs
+  ansible.builtin.copy:
+    src: /home/apinter/Project/git/dotconf/vim/.vim
+    dest: /home/apinter/.vim
+    owner: apinter
+    group: users
+    mode: '0744'
+  become: yes
+  become_user: apinter
