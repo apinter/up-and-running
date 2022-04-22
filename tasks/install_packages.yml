@@ -53,7 +53,9 @@
     - patterns-devel-base-devel_basis
     - bat
     - mlocate
-
+    - qemu-guest-agent
+    - spice-vdagent
+    
 - name: Install flatpaks
   ansible.builtin.shell: "flatpak install --user -y {{ item }}"
   become: yes
