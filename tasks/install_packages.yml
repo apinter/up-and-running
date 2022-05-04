@@ -14,10 +14,13 @@
     name: "{{ item }}"
     state: present
   loop:
+    - ripgrep
     - azure-cli
     - fish
     - docker
     - ranger
+    - nerdctl
+    - distrobox
     - podman
     - keepassxc
     - toolbox
