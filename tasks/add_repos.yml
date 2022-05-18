@@ -8,8 +8,6 @@
   loop:
     - azure-cli.repo
     - brave-browser.repo
-    - vivaldi.repo
-    - vscode.repo
     - ZSH-Syntax.repo
 
 - name: Refresh repos

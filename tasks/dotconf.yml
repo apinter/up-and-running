@@ -37,14 +37,15 @@
 - name: Symlink vim configs
   ansible.builtin.file:
     src: /home/apinter/Project/git/dotconf/vim/{{ item }}
-    dest: /home/apinter/{{ item }}
+    dest: /home/apinter/.{{ item }}
     owner: apinter
     group: users
     state: link
   become: yes
   become_user: apinter
   loop:
-    - .vimrc
+    - vimrc
+    - vim
 
 - name: Symlink zsh configs
   ansible.builtin.file:
@@ -71,12 +72,3 @@
     - .gitconfig
     - .ansible.cfg
 
-- name: Copy vim configs
-  ansible.builtin.copy:
-    src: /home/apinter/Project/git/dotconf/vim/.vim
-    dest: /home/apinter/.vim
-    owner: apinter
-    group: users
-    mode: '0744'
-  become: yes
-  become_user: apinter
