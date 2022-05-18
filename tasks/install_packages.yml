@@ -27,7 +27,8 @@
     - wireguard-tools
     - libvirt
     - virt-manager
-    - libvirt-daemon-qemu 
+    - libvirt-daemon-qemu
+    - kernel-firmware-all
 
 - name: Install flatpaks
   ansible.builtin.shell: "flatpak install --user -y {{ item }}"
