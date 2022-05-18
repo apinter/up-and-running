@@ -7,6 +7,7 @@
     gsettings set org.gnome.gnome-screenshot auto-save-directory 'file:///home/apinter/Media/Pictures/Screenshots/'
   become: yes
   become_user: apinter
+  ignore_errors: yes
 
 - name: Copy mount unit
   ansible.builtin.copy:
@@ -38,6 +39,9 @@
     enabled: true
     daemon_reload: yes
     name: update-user-flatpaks.timer
+    scope: user 
+  become: yes
+  become_user: apinter
 
 - include_tasks: dotconf.yml
 - include_tasks: update_system.yml

@@ -1,7 +1,7 @@
 ---
 - name: Clone dotconf
   ansible.builtin.git:
-    repo: git@github.com:apinter/dotconf.git
+    repo: https://github.com/apinter/dotconf.git 
     dest: /home/apinter/Project/git/dotconf
     update: true
   become: yes
@@ -11,8 +11,6 @@
   ansible.builtin.file:
     src: /home/apinter/Project/git/dotconf/{{ item }}
     dest: /home/apinter/.config/{{ item }}
-    owner: apinter
-    group: users
     state: link
   become: yes
   become_user: apinter
@@ -38,8 +36,6 @@
   ansible.builtin.file:
     src: /home/apinter/Project/git/dotconf/vim/{{ item }}
     dest: /home/apinter/.{{ item }}
-    owner: apinter
-    group: users
     state: link
   become: yes
   become_user: apinter
@@ -51,8 +47,6 @@
   ansible.builtin.file:
     src: /home/apinter/Project/git/dotconf/zsh/{{ item }}
     dest: /home/apinter/{{ item }}
-    owner: apinter
-    group: users
     state: link
   become: yes
   become_user: apinter
@@ -63,20 +57,10 @@
   ansible.builtin.file:
     src: /home/apinter/Project/git/dotconf/{{ item }}
     dest: /home/apinter/{{ item }}
-    owner: apinter
-    group: users
     state: link
   become: yes
   become_user: apinter
   loop:
     - .gitconfig
     - .ansible.cfg
-
-
-
-
-
-
-
-
 
