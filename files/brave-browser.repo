@@ -1,4 +1,0 @@
-[brave-browser]
-enabled=1
-autorefresh=0
-baseurl=https://brave-browser-rpm-release.s3.brave.com/x86_64/

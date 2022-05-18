@@ -6,6 +6,7 @@
     update_cache: yes
   when:
     - ansible_distribution == "openSUSE Tumbleweed"
+    - ansible_os_family == "openSUSE MicroOS"
 
 - name: Update SLE/openSUSE Leap hosts
   community.general.zypper:
@@ -19,4 +20,3 @@
   ansible.builtin.command:
     cmd: /usr/sbin/transactional-update cleanup dup
   when:
-    - ansible_os_family == "openSUSE MicroOS"

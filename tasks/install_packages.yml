@@ -4,58 +4,30 @@
   become: yes
   become_user: apinter
   loop:
-    - sudo -u apinter flatpak --user remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
     - sudo -u apinter flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     - flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    - sudo -u apinter flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 - name: Install rpms
   community.general.zypper:
     name: "{{ item }}"
     state: present
   loop:
-    - ripgrep
-    - azure-cli
     - fish
     - docker
     - ranger
     - nerdctl
     - distrobox
     - podman
-    - keepassxc
     - toolbox
-    - brave-browser
-    - code
-    - opi
-    - zsh
-    - zsh-syntax-highlighting
-    - ffmpeg
-    - virtualbox
-    - virtualbox-guest-tools
-    - python38-devel
-    - cmake
-    - python38
-    - mono-devel
-    - go
-    - dnf
     - v4l2loopback-utils
     - v4l2loopback-kmp-default
     - v4l2loopback-autoload
-    - pwgen
     - xdg-desktop-portal-gnome
     - xdg-desktop-portal-wlr
-    - gstreamer-plugin-pipewire
-    - sshpass
     - wireguard-tools
-    - uget
-    - wine
     - libvirt
     - virt-manager
-    - cryfs
-    - patterns-devel-C-C++-devel_C_C++
-    - patterns-devel-base-devel_basis
-    - bat
-    - mlocate
+    - libvirt-daemon-qemu 
 
 - name: Install flatpaks
   ansible.builtin.shell: "flatpak install --user -y {{ item }}"
