@@ -29,6 +29,8 @@
     - virt-manager
     - libvirt-daemon-qemu
     - kernel-firmware-all
+    - alacritty
+    - kitty
 
 - name: Install flatpaks
   ansible.builtin.shell: "flatpak install --user -y {{ item }}"
