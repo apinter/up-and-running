@@ -29,6 +29,7 @@
     - kernel-firmware-all
     - alacritty
     - kitty
+    - kubernetes1.23-client 
 
 - name: Install flatpaks
   ansible.builtin.shell: "flatpak install --user -y {{ item }}"
