@@ -49,7 +49,10 @@
   when: toolbox_container == false
 
 - include_tasks: dotconf.yml
+  when: toolbox_container == false
 - include_tasks: update_system.yml
+  when: toolbox_container == false
 - include_tasks: install_packages.yml
+  when: toolbox_container == false
 - include_tasks: toolbox_prep.yml
   when: toolbox_container == true
