@@ -126,7 +126,8 @@ toolbox_packages:
    - python38
    - python38-devel
    - python38-pip
-   - gpg2 
+   - gpg2
+   - cryfs
 pip_packages:
    - glances
    - yamllint
