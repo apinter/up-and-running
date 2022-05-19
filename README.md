@@ -1,12 +1,12 @@
 up-and-running
 =========
 
-This is a role for my own use to set up my TW box from a fresh installation.
+This is a role for my own use to set up my MicroOS box from a fresh installation.
 
 Requirements
 ------------
 
-Needs `community.general`
+Needs `community.general` collection, when running for a toolbox set the `toolbox_container` variable to true so it will run tasks only that are meant for a toolbox.
 
 Example Playbook
 ----------------

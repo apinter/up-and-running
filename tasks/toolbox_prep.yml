@@ -1,0 +1,5 @@
+---
+- name:
+  community.general.zypper:
+    name: "{{ toolbox_packages }}"
+    state: present

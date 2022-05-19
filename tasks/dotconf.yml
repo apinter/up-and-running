@@ -1,7 +1,7 @@
 ---
 - name: Clone dotconf
   ansible.builtin.git:
-    repo: https://github.com/apinter/dotconf.git 
+    repo: https://github.com/apinter/dotconf.git
     dest: /home/apinter/Project/git/dotconf
     update: true
   become: yes
@@ -18,19 +18,18 @@
     - fish
     - ranger
 
-# - name: Symlink Sway related configs
-#   ansible.builtin.file:
-#     src: /home/apinter/Project/git/dotconf/sway/{{ item }}
-#     dest: /home/apinter/.config/{{ item }}
-#     owner: apinter
-#     group: users
-#     state: link
-#   become: yes
-#   become_user: apinter
-#   loop:
-#     - sway
-#     - waybar
-#     - wofi
+- name: Symlink alacritty and kitty related configs
+  ansible.builtin.file:
+    src: /home/apinter/Project/git/dotconf/{{ item }}
+    dest: /home/apinter/.config/{{ item }}
+    owner: apinter
+    group: users
+    state: link
+  become: yes
+  become_user: apinter
+  loop:
+    - alacritty
+    - kitty
 
 - name: Symlink vim configs
   ansible.builtin.file:
@@ -41,7 +40,17 @@
   become_user: apinter
   loop:
     - vimrc
-    - vim  
+    - vim
+
+- name: Symlink fonts 
+  ansible.builtin.file:
+    src: /home/apinter/Project/git/dotconf/vim/{{ item }}
+    dest: /home/apinter/.local/share/{{ item }}
+    state: link
+  become: yes
+  become_user: apinter
+  loop:
+    - fonts
 
 - name: Symlink zsh configs
   ansible.builtin.file:
@@ -63,4 +72,3 @@
   loop:
     - .gitconfig
     - .ansible.cfg
-

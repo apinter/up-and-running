@@ -8,6 +8,7 @@
   become: yes
   become_user: apinter
   ignore_errors: yes
+  when: toolbox_container == false
 
 - name: Copy mount unit
   ansible.builtin.copy:
@@ -15,12 +16,14 @@
     dest: /etc/systemd/system/
     owner: root
     mode: '0644'
+  when: toolbox_container == false
 
 - name: Enable mount unit
   ansible.builtin.systemd:
     enabled: true
     daemon_reload: yes
     name: home-apinter-Media.mount
+  when: toolbox_container == false
 
 - name: Copy flatpak update unit and timer
   ansible.builtin.copy:
@@ -33,6 +36,7 @@
   loop:
     - update-user-flatpaks.service
     - update-user-flatpaks.timer
+  when: toolbox_container == false
 
 - name: Enable flatpak update timer
   ansible.builtin.systemd:
@@ -42,7 +46,10 @@
     scope: user 
   become: yes
   become_user: apinter
+  when: toolbox_container == false
 
 - include_tasks: dotconf.yml
 - include_tasks: update_system.yml
 - include_tasks: install_packages.yml
+- include_tasks: toolbox_prep.yml
+  when: toolbox_container == true
