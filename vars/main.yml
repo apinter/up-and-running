@@ -1,7 +1,6 @@
 microos_rpm_pkg:
    - fish
    - docker
-   - ranger
    - nerdctl
    - distrobox
    - podman
@@ -122,3 +121,16 @@ toolbox_packages:
    - kitty
    - alacritty
    - fish
+   - osc
+   - ranger
+   - python38
+   - python38-devel
+   - python38-pip
+   - gpg2 
+pip_packages:
+   - glances
+   - yamllint
+   - pymongo
+   - pyyaml
+   - openshift
+   - google.auth
