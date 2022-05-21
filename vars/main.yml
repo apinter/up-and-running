@@ -1,5 +1,7 @@
 microos_rpm_pkg:
    - fish
+   - kitty
+   - alacritty
    - docker
    - nerdctl
    - distrobox
@@ -16,6 +18,8 @@ microos_rpm_pkg:
    - libvirt-daemon-qemu
    - kernel-firmware-all
    - kubernetes1.23-client
+   - NetworkManager-wifi
+   - NetworkManager-wwan
 flatpak_pkg:
    - com.belmoussaoui.Decoder
    - com.belmoussaoui.Obfuscate
@@ -118,8 +122,6 @@ toolbox_packages:
    - kubernetes1.23-client
    - git
    - openssh-common
-   - kitty
-   - alacritty
    - fish
    - osc
    - ranger

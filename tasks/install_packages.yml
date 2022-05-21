@@ -12,6 +12,7 @@
   become: yes
   become_user: apinter
   ignore_errors: true
+
 - name: Download logo-ls
   ansible.builtin.get_url:
     url: https://github.com/Yash-Handa/logo-ls/releases/download/v1.3.7/logo-ls_amd64.rpm
